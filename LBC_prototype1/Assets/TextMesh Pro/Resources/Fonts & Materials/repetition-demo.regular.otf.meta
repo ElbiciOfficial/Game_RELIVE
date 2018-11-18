@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 5b9397f6e8d87da4f9673022f481cf5e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Repetition DEMO
+  fontNames:
+  - Repetition DEMO
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: de15a403e54ddc64c903e40aff53e5e0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

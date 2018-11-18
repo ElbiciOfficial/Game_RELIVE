@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Interact1
+  - sphere
+  - Weapon
+  - Enemy
+  - static_obj
+  - Energy
+  - Enemy_Attack
+  - Deathspace
+  - Player_Attack
+  - Door
+  - Urn
+  - Empty Picture Frame
+  - Picture piece
+  - Portal
+  - Energy X
+  - stand
+  - Robot piece
+  - Empty Stand
+  - Sketch
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - sky
+  - 
+  - 
+  - Weapon
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
