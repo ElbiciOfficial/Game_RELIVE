@@ -212,7 +212,105 @@ public class question_script : MonoBehaviour {
                     //SceneManager.LoadScene("chapter2_stage1");
                 }
 
-            }       
+            }
+        }
+        else if (stage_type == "Chapter2_stage4")
+        {
+            if (start_slide == 0)
+            {
+                if (count_slide == 0)
+                {
+                    question.text = "Oh we meet again, Mr. Marcus.";
+                    slide_txt.SetBool("slide_txt", true);
+                    StopCoroutine("slider");
+                    count_slide += 1;
+                    start_slide = 4;
+                    StartCoroutine("slider");
+                }
+                else if (count_slide == 1)
+                {
+                    slide_txt.SetBool("slide_txt", false);
+                    StartCoroutine("second_slider");
+                }
+                else if (count_slide == 2)
+                {
+                    slide_txt.SetBool("slide_txt", false);
+                    StartCoroutine("third_slider");
+                }
+                else if (count_slide == 3)
+                {
+                    slide_txt.SetBool("slide_txt", false);
+                    StartCoroutine("fourth_slider");
+                }
+
+            }
+
+
+            if (start_second == 0)
+            {
+                question.text = "Don't be nervous, I just want to ask you another question.";
+                slide_txt.SetBool("slide_txt", true);
+                StopCoroutine("slider");
+                count_slide += 1;
+                start_slide = 4;
+                start_second = 3;
+                StartCoroutine("slider");
+                StopCoroutine("second_slider");
+            }
+            else if (start_third == 0)
+            {
+                question.text = "Do you want to blah blah blah";
+                slide_txt.SetBool("slide_txt", true);
+                StopCoroutine("slider");
+                count_slide += 1;
+                start_slide = 4;
+                start_third = 3;
+                StartCoroutine("slider");
+                StopCoroutine("third_slider");
+            }
+            else if (start_fourth == 0)
+            {
+                question.text = "Would you take it or not?";
+                slide_txt.SetBool("slide_txt", true);
+                StopCoroutine("slider");
+                count_slide += 1;
+                start_slide = 4;
+                start_fourth = 3;
+                StartCoroutine("slider");
+                StopCoroutine("fourth_slider");
+                button_.interactable = true;
+                button_2.interactable = true;
+                button_slider.SetBool("start", true);
+                button_slider2.SetBool("start", true);
+                button_anim.SetBool("start", true);
+                button_anim2.SetBool("start", true);
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else if (start_answer == 0)
+            {
+                question.text = "Let's see if you've made the right answer. For now I'll leave you on your own";
+                slide_txt.SetBool("slide_txt", true);
+                StopCoroutine("slider");
+                answer_slide += 1;
+                end_slide = 3;
+                start_answer = 3;
+                StartCoroutine("eslider");
+                StopCoroutine("answered_slider");
+            }
+
+            if (end_slide == 0)
+            {
+                if (answer_slide == 1)
+                {
+                    slide_txt.SetBool("slide_txt", false);
+                    rid.SetBool("rid", false);
+                    loadscreen.SetBool("load", true);
+                    loadscreen.SetBool("open", false);
+                    StartCoroutine("load1");
+                    //SceneManager.LoadScene("chapter2_stage1");
+                }
+
+            }
         }
 
         if (portal_count == 0)

@@ -76,8 +76,13 @@ public class game_starter : MonoBehaviour
     public GameObject scene_;
     public GameObject current_scene;
 
+    public GameObject group1;
+    public GameObject group2;
+
+    public GameObject dialogue;
+
     void Start()
-    {
+    {     
         scene_ = GameObject.Find("scene name");
         scene_name s_name = scene_.GetComponent<scene_name>();
         scene_name c_name =current_scene.GetComponent<scene_name>();
@@ -86,13 +91,14 @@ public class game_starter : MonoBehaviour
 
         if (stage_type == "chapter1_stage1")
         {
-            timeLeft = 15;
+            timeLeft = 180;
 
 
             stage_chapter.text = "Chapter I";
             stage_title.text = "Stage 2";
             stage_objective.text = "Kill 45 Enemies in 2 Minutes and 30 seconds";
-            marker_objective.text = stage_objective.text;    
+            marker_objective.text = stage_objective.text;
+            group1.SetActive(true);
         }
         else if (stage_type == "chapter1_stage3")
         {
@@ -102,7 +108,8 @@ public class game_starter : MonoBehaviour
             stage_chapter.text = "Chapter I";
             stage_title.text = "Stage 4";
             stage_objective.text = "Kill 100 Enemies in 3 Minutes";
-            marker_objective.text = stage_objective.text;     
+            marker_objective.text = stage_objective.text;
+            group2.SetActive(true);
         }
         else if (stage_type == "chapter2_stage1")
         {
@@ -144,10 +151,15 @@ public class game_starter : MonoBehaviour
         Time.timeScale = 1;
         Objectivespanel.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        dialogue_chapter1 story = dialogue.GetComponent<dialogue_chapter1>();
+        story.story_part(true);
+        //Debug.Log("PAUSE");
+    }
+
+    public void count_down(bool count)
+    {
         Countdown.SetActive(true);
         StartCoroutine("LoseTime");
-       
-        //Debug.Log("PAUSE");
     }
 
     public void DoFreeze()

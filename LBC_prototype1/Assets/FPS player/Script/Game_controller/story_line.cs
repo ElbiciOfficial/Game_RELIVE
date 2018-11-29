@@ -12,20 +12,23 @@ public class story_line : MonoBehaviour {
     public Animator loadscreen;
     public Image display_story;
 
-    public int secount = 4;
-    public int count = 4;
+    public int secount = 3;
+    public int count = 3;
     private int count2 = 0;
 
-    public GameObject new_game;
-    public string newg;
+    //public GameObject new_game;
+    //public string newg;
 
     public GameObject black;
 
     public GameObject scene_;
-    private string stage_type;
+    public string stage_type;
     private string story_scene;
 
     private int portal_count = 3;
+
+    private int skip_count = 9;
+    public Button skip;
 
     // Use this for initialization
     void Start () {
@@ -33,8 +36,10 @@ public class story_line : MonoBehaviour {
         scene_ = GameObject.Find("final_scene");
         scene_name f_name = scene_.GetComponent<scene_name>();
         //scene_name t_name = story_scene.GetComponent<scene_name>();
+        Cursor.lockState = CursorLockMode.Locked;
         stage_type = f_name.Name_s;
         StartCoroutine("nextscene");
+        StartCoroutine("startskip");
 
         if (stage_type == "newgame")
         {
@@ -60,7 +65,7 @@ public class story_line : MonoBehaviour {
                 loadscreen.SetBool("load", true);
                 loadscreen.SetBool("open", false);
                 count2 += 1;
-                secount = 4;
+                secount = 3;
                 StopCoroutine("nextscene2");
                 StartCoroutine("nextscene");
 
@@ -68,8 +73,8 @@ public class story_line : MonoBehaviour {
                 {
                     if (count2 == chapter1.Length - 1)
                     {
-                        count = 4;
-                        secount = 4;
+                        count = 3;
+                        secount = 3;
                         StopCoroutine("nextscene2");
                         StopCoroutine("nextscene");
                         StartCoroutine("load1");
@@ -79,8 +84,8 @@ public class story_line : MonoBehaviour {
                 {
                     if (count2 == chapter2.Length - 1)
                     {
-                        count = 4;
-                        secount = 4;
+                        count = 3;
+                        secount = 3;
                         StopCoroutine("nextscene2");
                         StopCoroutine("nextscene");
                         StartCoroutine("load1");
@@ -157,6 +162,14 @@ public class story_line : MonoBehaviour {
 
         }
 
+        if(skip_count == 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            skip.interactable = true;
+            Animator skip1 = skip.GetComponent<Animator>();
+            skip1.SetBool("slide_skip", true);
+        }
+
     }
 
 
@@ -194,6 +207,19 @@ public class story_line : MonoBehaviour {
 
 
             portal_count--;
+
+
+
+        }
+    }
+    IEnumerator startskip()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+
+
+            skip_count--;
 
 
 
