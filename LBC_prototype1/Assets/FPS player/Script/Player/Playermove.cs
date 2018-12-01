@@ -21,6 +21,8 @@ public class Playermove : MonoBehaviour {
     public int noweapon = 1;
     public int withweapon = 0;
 
+    public bool startmove;
+
 
     private void Awake()
     {
@@ -112,5 +114,6 @@ public class Playermove : MonoBehaviour {
         }
     }
 
+   
 
 }

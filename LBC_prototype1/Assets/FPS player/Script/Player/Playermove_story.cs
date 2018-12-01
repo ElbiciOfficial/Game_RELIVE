@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playermove_story : MonoBehaviour
 {
@@ -114,6 +115,31 @@ public class Playermove_story : MonoBehaviour
         //        movementSpeed = Mathf.Lerp(movementSpeed, walkSpeed, Time.deltaTime * runBuildUpSpeed);
         //    }
         //}
+    }
+
+    public void Load()
+    {
+        SaveGame.Load();
+        transform.position = SaveGame.Instance.PlayerPosition;
+    }
+
+    public void Save()
+    {
+        SaveGame.Instance.PlayerPosition = transform.position;
+        SaveGame.Save();
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+
+    }
+
+    public void Exit()
+    {
+        Debug.Log("Quitting game....");
+        Application.Quit();
     }
 
 

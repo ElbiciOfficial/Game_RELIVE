@@ -38,20 +38,26 @@ public class story_line : MonoBehaviour {
         //scene_name t_name = story_scene.GetComponent<scene_name>();
         Cursor.lockState = CursorLockMode.Locked;
         stage_type = f_name.Name_s;
-        StartCoroutine("nextscene");
-        StartCoroutine("startskip");
 
         if (stage_type == "newgame")
         {
             story_scene = "Chapter1_story";
+            StartCoroutine("nextscene");
+            StartCoroutine("startskip");
+
         }
         else if (stage_type == "Chapter1_stage5")
         {
             story_scene = "Chapter2_story";
+            StartCoroutine("nextscene");
+            StartCoroutine("startskip");
+
         }
         else if (stage_type == "Chapter2_stage5")
         {
            story_scene = "Chapter3_story";
+           StartCoroutine("nextscene");
+           StartCoroutine("startskip");
         }
     }
 	
@@ -142,6 +148,7 @@ public class story_line : MonoBehaviour {
             {
                 if (count2 == chapter1.Length - 1)
                 {
+                    Destroy(scene_);
                     SceneManager.LoadScene("chapter1_stage1");
                 }
             }
@@ -149,6 +156,7 @@ public class story_line : MonoBehaviour {
             {
                 if (count2 == chapter2.Length - 1)
                 {
+                    Destroy(scene_);
                     SceneManager.LoadScene("chapter2_stage1");
                 }
             }
@@ -164,6 +172,7 @@ public class story_line : MonoBehaviour {
 
         if(skip_count == 0)
         {
+          
             Cursor.lockState = CursorLockMode.None;
             skip.interactable = true;
             Animator skip1 = skip.GetComponent<Animator>();

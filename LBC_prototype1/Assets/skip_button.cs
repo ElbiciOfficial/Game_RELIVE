@@ -14,10 +14,12 @@ public class skip_button : MonoBehaviour {
 
     private int portal_count = 3;
 
+    public GameObject scene_;
+
     // Use this for initialization
     void Start()
     {
-
+        scene_ = GameObject.Find("final_scene");
         Button strt = skipbutton.GetComponent<Button>();
         strt.onClick.AddListener(ToggleSkip);
     }
@@ -26,7 +28,7 @@ public class skip_button : MonoBehaviour {
         story_line st = story.GetComponent<story_line>();
 
         game_scene = st.stage_type;
-
+        Destroy(scene_);
         skipbutton.interactable = false;
         button.SetBool("slide_skip", false);
         load.SetBool("load", true);

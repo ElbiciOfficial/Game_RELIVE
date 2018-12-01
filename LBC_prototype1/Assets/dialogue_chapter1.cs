@@ -18,6 +18,7 @@ public class dialogue_chapter1 : MonoBehaviour {
 
     public GameObject gamemanager;
 
+
     // Use this for initialization
     void Start () {
 		
@@ -72,6 +73,7 @@ public class dialogue_chapter1 : MonoBehaviour {
                             StopCoroutine("LoseTime");
                             line_one = numboftime;
                             marcus_lines = 1;
+                                              
                             break;
 
                         default:

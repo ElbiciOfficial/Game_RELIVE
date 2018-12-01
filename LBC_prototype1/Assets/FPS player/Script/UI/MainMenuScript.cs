@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +22,12 @@ public class MainMenuScript : MonoBehaviour {
         DontDestroyOnLoad(newgame);
     }
 
+    public void Exit()
+    {
+        Debug.Log("Quitting Game");
+        Application.Quit();
+    }
+
     void Update()
     {
         if (count == 0)
@@ -38,7 +43,7 @@ public class MainMenuScript : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
 
 
             count--;

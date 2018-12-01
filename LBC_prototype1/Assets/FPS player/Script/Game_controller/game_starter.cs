@@ -80,6 +80,7 @@ public class game_starter : MonoBehaviour
     public GameObject group2;
 
     public GameObject dialogue;
+    public GameObject player;
 
     void Start()
     {     
@@ -91,12 +92,12 @@ public class game_starter : MonoBehaviour
 
         if (stage_type == "chapter1_stage1")
         {
-            timeLeft = 180;
+            timeLeft = 15;
 
 
             stage_chapter.text = "Chapter I";
             stage_title.text = "Stage 2";
-            stage_objective.text = "Kill 45 Enemies in 2 Minutes and 30 seconds";
+            stage_objective.text = "Kill 60 Enemies in 2 Minutes and 30 seconds";
             marker_objective.text = stage_objective.text;
             group1.SetActive(true);
         }
@@ -118,7 +119,7 @@ public class game_starter : MonoBehaviour
 
             stage_chapter.text = "Chapter II";
             stage_title.text = "Stage 2";
-            stage_objective.text = "Kill 45 Enemies in 2 Minutes and 30 seconds";
+            stage_objective.text = "Kill 60 Enemies in 2 Minutes and 30 seconds";
             marker_objective.text = stage_objective.text;
         }
         else if (stage_type == "chapter2_stage3")
@@ -213,6 +214,10 @@ public class game_starter : MonoBehaviour
                 UIlist[i].SetActive(true);
                         
             }
+
+            //Playermove play = player.GetComponent<Playermove>();
+            //play.startmove = true;
+
             b = cdtimepanel.GetComponent<Animator>();
             b.SetBool("start_cd", true);
             c = markerpanel.GetComponent<Animator>();

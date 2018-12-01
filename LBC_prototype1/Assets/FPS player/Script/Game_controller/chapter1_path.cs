@@ -596,7 +596,7 @@ public class chapter1_path : MonoBehaviour {
                             objpanel.SetBool("obj_slide", false);
                             line_one = numboftime;
                             marcus_lines = 1;
-                            StartCoroutine("nextobj6"); ;
+                            StartCoroutine("nextobj6"); 
                             break;
 
                         default:

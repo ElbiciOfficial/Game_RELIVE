@@ -58,6 +58,7 @@ public class question_script : MonoBehaviour {
         if(stage_type == "Chapter1_stage4")
         {
             f_name.Name_s = "Chapter1_stage5";
+            Debug.Log(f_name.Name_s);
         }
         else if (stage_type == "Chapter2_stage4")
         {
