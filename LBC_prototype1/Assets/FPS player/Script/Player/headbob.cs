@@ -10,6 +10,7 @@ public class headbob : MonoBehaviour {
         float bobbingAmount = 0.14f;
         float midpoint = 2.0f;
         public bool gamefreeze = false;   
+        public bool start;
 
         public void freezeit(bool freeze)
         {
@@ -21,7 +22,7 @@ public class headbob : MonoBehaviour {
 
            if(gamefreeze == false)
            {
-            if (Time.timeSinceLevelLoad > 8)
+            if (start == true)
             {
                 float waveslice = 0.0f;
                 float horizontal = Input.GetAxis("Horizontal");

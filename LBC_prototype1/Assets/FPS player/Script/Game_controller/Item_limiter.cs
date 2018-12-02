@@ -26,7 +26,7 @@ public class Item_limiter : MonoBehaviour {
 
         
         numofitems = GameObject.FindGameObjectsWithTag("Energy");
-        Debug.Log("item spawn: " + numofitems.Length);
+        //Debug.Log("item spawn: " + numofitems.Length);
 
         if (numofitems.Length >= 4)
         {

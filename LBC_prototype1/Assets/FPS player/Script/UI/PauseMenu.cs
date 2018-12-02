@@ -15,21 +15,26 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject menupanel;
     private int twoshot;
+    public bool menu_panel;
     // Update is called once per frame
     void Update () {
 
-        if (Input.GetKeyDown(esc))
+        if(menu_panel == true)
         {
-            if (GameIsPaused)
+            if (Input.GetKeyDown(esc))
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+                if (GameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
 
+            }
         }
+       
 
         if (oneshot == 1)
         {         

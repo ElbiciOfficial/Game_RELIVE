@@ -87,6 +87,21 @@ public class Scene_button : MonoBehaviour {
                 SceneManager.LoadScene("stage5");
             }
         }
+        else if (start.stage_type == "chapter3_stage1")
+        {
+            if (portal_count == 0)
+            {              
+                SceneManager.LoadScene("chapter3_stage3");
+            }
+        }
+        else if (start.stage_type == "chapter3_stage4")
+        {
+            if (portal_count == 0)
+            {
+                DontDestroyOnLoad(currentS);
+                SceneManager.LoadScene("stage5");
+            }
+        }
     }
     IEnumerator loadscreen()
     {

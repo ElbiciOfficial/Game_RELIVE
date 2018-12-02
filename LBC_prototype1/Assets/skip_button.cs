@@ -15,23 +15,27 @@ public class skip_button : MonoBehaviour {
     private int portal_count = 3;
 
     public GameObject scene_;
+    public GameObject Game_data;
 
     // Use this for initialization
     void Start()
     {
-        scene_ = GameObject.Find("final_scene");
+        Game_data = GameObject.Find("Game_data");
+        scene_ = GameObject.Find("scene name");
+        scene_name f_name = scene_.GetComponent<scene_name>();
+        game_scene = f_name.Name_s;
         Button strt = skipbutton.GetComponent<Button>();
         strt.onClick.AddListener(ToggleSkip);
     }
     public void ToggleSkip()
     {
-        story_line st = story.GetComponent<story_line>();
+        //story_line st = story.GetComponent<story_line>();
 
-        game_scene = st.stage_type;
-        Destroy(scene_);
+       
         skipbutton.interactable = false;
         button.SetBool("slide_skip", false);
         load.SetBool("load", true);
+        load.SetBool("open", false);
 
         StartCoroutine("load1");
 
@@ -43,22 +47,44 @@ public class skip_button : MonoBehaviour {
         {
             if (game_scene == "newgame")
             {
+                DontDestroyOnLoad(Game_data);
+                Destroy(scene_);
                 StopCoroutine("load1");
                 SceneManager.LoadScene("chapter1_stage1");
 
             }
             else if (game_scene == "Chapter1_stage5")
             {
+                DontDestroyOnLoad(Game_data);
+                Destroy(scene_);
                 StopCoroutine("load1");
                 SceneManager.LoadScene("chapter2_stage1");
 
             }
-            //else if (story_scene == "Chapter2_stage5")
-            //{
-            //   
-            //        display_story.sprite = chapter3[count2];
-            // 
-            //}
+            else if (game_scene == "Chapter2_stage5")
+            {
+                DontDestroyOnLoad(Game_data);
+                Destroy(scene_);
+                StopCoroutine("load1");
+                SceneManager.LoadScene("chapter3_stage1");
+
+            }
+            else if (game_scene == "chapter3_stage1")
+            {
+                DontDestroyOnLoad(Game_data);
+                DontDestroyOnLoad(scene_);
+                StopCoroutine("load1");
+                SceneManager.LoadScene("chapter1_stage2");
+
+            }
+            else if (game_scene == "chapter3_stage3")
+            {
+                DontDestroyOnLoad(Game_data);
+                DontDestroyOnLoad(scene_);
+                StopCoroutine("load1");
+                SceneManager.LoadScene("chapter1_stage2");
+
+            }
 
         }
     }

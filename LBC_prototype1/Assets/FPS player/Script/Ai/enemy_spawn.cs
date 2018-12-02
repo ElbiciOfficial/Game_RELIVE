@@ -9,6 +9,7 @@ public class enemy_spawn : MonoBehaviour {
     public GameObject ball2;
     public GameObject[] c2stage4 = new GameObject[2];
     public GameObject[] c3stage2 = new GameObject[2];
+    public GameObject[] c3stage4 = new GameObject[3];
 
     public float spawnTime = 3f;
    
@@ -60,10 +61,16 @@ public class enemy_spawn : MonoBehaviour {
             else if (stage_type == "chapter3_stage1")
             {
                 var newspawn = spawn.transform.position;
-                var newBall = GameObject.Instantiate(ball);
+                var newBall = GameObject.Instantiate(c3stage2[Random.Range(0, 2)]);
                 newBall.transform.position = newspawn;
             }
-           
+            else if (stage_type == "chapter3_stage3")
+            {
+                var newspawn = spawn.transform.position;
+                var newBall = GameObject.Instantiate(c3stage4[Random.Range(0, 3)]);
+                newBall.transform.position = newspawn;
+            }
+
 
         }
     

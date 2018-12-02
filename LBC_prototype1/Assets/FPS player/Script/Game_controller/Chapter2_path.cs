@@ -48,6 +48,8 @@ public class Chapter2_path : MonoBehaviour {
 
     public GameObject wall;
 
+    public GameObject chest;
+
     void Start()
     {
         start = gamemanager.GetComponent<game_starte_story>();
@@ -62,7 +64,7 @@ public class Chapter2_path : MonoBehaviour {
     public void activatediag(bool dialogue)
     {
         slide.SetBool("start_slide", dialogue);
-
+        lines.text = "Wha-… what just happened??  And where am I?";
         line_one = numboftime;
         line_part = "first line";
         StartCoroutine("LoseTime");
@@ -70,7 +72,7 @@ public class Chapter2_path : MonoBehaviour {
     public void activatediag2(bool dialogue2)
     {
         slide.SetBool("start_slide", dialogue2);
-        lines.text = "this place";
+        lines.text = "this place is so creepy";
         line_one = numboftime;
         line_part = "second line";
         StartCoroutine("LoseTime");
@@ -86,7 +88,7 @@ public class Chapter2_path : MonoBehaviour {
     public void activatesketch(bool sketch)
     {
         slide.SetBool("start_slide", sketch);
-        lines.text = "whats with this drawing";
+        lines.text = "I knew it!!";
         line_one = numboftime;
         line_part = "fourth line";
         StartCoroutine("LoseTime");
@@ -94,7 +96,7 @@ public class Chapter2_path : MonoBehaviour {
     public void activaterob(bool robot)
     {
         slide.SetBool("start_slide", robot);
-        lines.text = "may be i need to find that toy somewhere here";
+        lines.text = "maybe i need to find that toy somewhere";
         line_one = numboftime;
         line_part = "fifth line";
         StartCoroutine("LoseTime");
@@ -117,12 +119,32 @@ public class Chapter2_path : MonoBehaviour {
         rob1.SetActive(true);
         StartCoroutine("LoseTime");
     }
+    public void unknown(bool known)
+    {
+
+        slide.SetBool("start_slide", known);
+        lines.text = "Ughh… Not again.";
+        line_one = numboftime;
+        line_part = "twelve line";
+        StartCoroutine("LoseTime");
+
+    }
+    public void unknown2(bool known)
+    {
+
+        slide.SetBool("start_slide", known);
+        lines.text = "*sighs* here we go again!  When will you guys stop!";
+        line_one = numboftime;
+        line_part = "thirteen line";
+        StartCoroutine("LoseTime");
+
+    }
 
 
     public void activatediag4(bool dialogue4)
     {
         slide.SetBool("start_slide", dialogue4);
-        lines.text = "ok now I'm here again";
+        lines.text = "What is this that I am feeling… It is like guilt…  I hate this feeling.";
         line_one = numboftime;
         line_part = "eight line";
         StartCoroutine("LoseTime");
@@ -167,14 +189,14 @@ public class Chapter2_path : MonoBehaviour {
                     switch (marcus_lines)
                     {
                         case 2:
-                            lines.text = "gg";
+                            lines.text = "Is that a dream?";
 
                             line_one = numboftime;
                             next_key.SetActive(false);
                             break;
 
                         case 3:
-                            lines.text = "Reddsa..";
+                            lines.text = " Is that me as a child? I barely remember";
 
                             line_one = numboftime;
                             next_key.SetActive(false);
@@ -213,7 +235,7 @@ public class Chapter2_path : MonoBehaviour {
                     switch (marcus_lines)
                     {                       
                         case 2:
-                            lines.text = "s";
+                            lines.text = "I should go and check if someones in there";
 
                             line_one = numboftime;
                             next_key.SetActive(false);
@@ -254,13 +276,18 @@ public class Chapter2_path : MonoBehaviour {
                     switch (marcus_lines)
                     {
                         case 2:
-                            lines.text = "it looks like a drawing of someone";
+                            lines.text = "I remember this thing.  This is the thing I dreamt earlier";
 
                             line_one = numboftime;
                             next_key.SetActive(false);
                             break;
-
                         case 3:
+                            lines.text = "A robot toy.";
+
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;                   
+                        case 4:
                             slide.SetBool("start_slide", false);
                             sketch.tag = "Sketch";
                             objpanel.SetBool("obj_slide", true);
@@ -302,6 +329,12 @@ public class Chapter2_path : MonoBehaviour {
                             next_key.SetActive(false);
                             break;
                         case 3:
+                            lines.text = "the gift from my parents… What is happening?";
+
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 4:
                             slide.SetBool("start_slide", false);
                             objpanel.SetBool("obj_slide", false);
                             next_key.SetActive(false);
@@ -351,7 +384,7 @@ public class Chapter2_path : MonoBehaviour {
                             stand.tag = "static_obj";
                             StartCoroutine("nextobj2");
                             line_one = numboftime;
-                            marcus_lines = 1;
+                            marcus_lines = 1;                
                             break;
 
                         default:
@@ -448,6 +481,81 @@ public class Chapter2_path : MonoBehaviour {
 
 
         }
+        else if (line_part == "twelve line")
+        {
+            if (line_one == -1)
+            {
+                next_key.SetActive(true);
+            }
+
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
+                {
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
+                    {
+                        case 2:
+                            lines.text = "Welp… If I did it earlier I am sure I can do it again.  Bring it on!";
+
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;                  
+                        case 3:
+                            slide.SetBool("start_slide", false);                       
+                            portal.tag = "Portal";
+                            next_key.SetActive(false);
+                            StopCoroutine("LoseTime");
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            break;
+
+                        default:
+
+                            break;
+
+                    }
+                }
+            }
+
+
+        }
+        else if (line_part == "thirteen line")
+        {
+            if (line_one == -1)
+            {
+                next_key.SetActive(true);
+            }
+
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
+                {
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
+                    {
+                      
+                        case 2:
+                            slide.SetBool("start_slide", false);
+                            portal.tag = "Portal";
+                            next_key.SetActive(false);
+                            StopCoroutine("LoseTime");
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            break;
+
+                        default:
+
+                            break;
+
+                    }
+                }
+            }
+
+
+        }
         else if (line_part == "eight line")
         {
             if (line_one == -1)
@@ -464,7 +572,7 @@ public class Chapter2_path : MonoBehaviour {
                     switch (marcus_lines)
                     {
                         case 2:
-                            lines.text = "I'll go find the other part of that robot";
+                            lines.text = "Guess I got no choice but to find the remaining parts of this toy.";
 
                             line_one = numboftime;
                             next_key.SetActive(false);
@@ -506,7 +614,7 @@ public class Chapter2_path : MonoBehaviour {
                     switch (marcus_lines)
                     {
                         case 2:
-                            lines.text = "sssssss";
+                            lines.text = "I hope that I can end this now";
 
                             line_one = numboftime;
                             next_key.SetActive(false);
@@ -586,6 +694,7 @@ public class Chapter2_path : MonoBehaviour {
             objpanel.SetBool("obj_slide", true);
             obj_text.text = "Find the first piece";
             objtracker.SetBool("start_obj", true);
+            chest.SetActive(true);
             robot1.SetActive(true);
         }
         if (obj_next3 == 0)
@@ -609,6 +718,7 @@ public class Chapter2_path : MonoBehaviour {
             objpanel.SetBool("obj_slide", true);
             obj_text.text = "Find the other part";
             objtracker.SetBool("start_obj", true);
+            chest.SetActive(true);
             robot2.SetActive(true);
         }
         if (obj_next6 == 0)

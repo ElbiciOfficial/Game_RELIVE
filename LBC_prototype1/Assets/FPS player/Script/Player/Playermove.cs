@@ -12,6 +12,7 @@ public class Playermove : MonoBehaviour {
     [SerializeField] private float runBuildUpSpeed;
     [SerializeField] private KeyCode runKey;
     [SerializeField] private KeyCode walkKey;
+    public bool start;
 
     private float movementSpeed;
     //public Animator marcus;
@@ -32,7 +33,7 @@ public class Playermove : MonoBehaviour {
 
     private void Update()
     {
-        if (Time.timeSinceLevelLoad >= 8)
+        if (start == true)
         {
             PlayerMovement();
         }

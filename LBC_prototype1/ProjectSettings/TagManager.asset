@@ -23,6 +23,11 @@ TagManager:
   - Robot piece
   - Empty Stand
   - Sketch
+  - Mysterious Book
+  - Missing Picture
+  - DOOR_END
+  - Unknown Energy
+  - Mysterious Chest
   layers:
   - Default
   - TransparentFX

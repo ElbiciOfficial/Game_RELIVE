@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -395,94 +395,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540207603}
   m_CullTransparentMesh: 0
---- !u!1 &671456378
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 671456382}
-  - component: {fileID: 671456381}
-  - component: {fileID: 671456380}
-  - component: {fileID: 671456379}
-  m_Layer: 5
-  m_Name: loadscreen1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &671456379
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 671456378}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ee36153353fe1de449f2e3e5ffc0872f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &671456380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 671456378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &671456381
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 671456378}
-  m_CullTransparentMesh: 1
---- !u!224 &671456382
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 671456378}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1627324469}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &704922300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1256,7 @@ GameObject:
   - component: {fileID: 1627324467}
   - component: {fileID: 1627324466}
   - component: {fileID: 1627324470}
+  - component: {fileID: 1627324471}
   m_Layer: 5
   m_Name: interface
   m_TagString: Untagged
@@ -1422,7 +1335,6 @@ RectTransform:
   - {fileID: 821706066}
   - {fileID: 1799157335}
   - {fileID: 1721203656}
-  - {fileID: 671456382}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1473,6 +1385,40 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 166c790b1c2f89b44802d093bb9ff349, type: 3}
   - {fileID: 21300000, guid: 6e3a7f7be20ddda43be55881bd5e4754, type: 3}
   - {fileID: 21300000, guid: 56297b896575fd144bb670223265a56c, type: 3}
+  chapter3:
+  - {fileID: 21300000, guid: cf010a11f7f42d04eaa5c045c03e0800, type: 3}
+  - {fileID: 21300000, guid: bcda701c3b1edcc47b9c6bbcb82452ef, type: 3}
+  - {fileID: 21300000, guid: 651572dfb1086244bbb51807888cf23a, type: 3}
+  - {fileID: 21300000, guid: a370ae556f2de6c4cada012b8e35cc9b, type: 3}
+  - {fileID: 21300000, guid: df7d915acfee12343aac83990dbc4983, type: 3}
+  - {fileID: 21300000, guid: 74a3440d8faf8e24b801a032b7c0c38e, type: 3}
+  - {fileID: 21300000, guid: 8c7e80715d4de24408f7a08c476a2dfa, type: 3}
+  - {fileID: 21300000, guid: ffe08ab46340c8649a6431d8c76846a8, type: 3}
+  - {fileID: 21300000, guid: 1841be1a17da7c243a861b13f84b2cbb, type: 3}
+  - {fileID: 21300000, guid: d592ef049c8093e4a9f5792cf4ad6407, type: 3}
+  - {fileID: 21300000, guid: 6fc0ecb098cef9441aeb530345359ecc, type: 3}
+  - {fileID: 21300000, guid: 2d5dc4383fd6c654a8ddd7bd18234d3c, type: 3}
+  - {fileID: 21300000, guid: 3b6a0b3fd8d961845805c37d88b21012, type: 3}
+  - {fileID: 21300000, guid: 4becc1bbdd5035e44b9f92ce560202fc, type: 3}
+  - {fileID: 21300000, guid: 6fc4673b1a4c7364fb86e9768f0d2226, type: 3}
+  - {fileID: 21300000, guid: ed2bc351b47f5de4a97fbc42c17bda13, type: 3}
+  chapter3mini:
+  - {fileID: 21300000, guid: a2d0092834d17684aab3fa5d8fdc0b7b, type: 3}
+  - {fileID: 21300000, guid: beb280243ec6b9d469af043944ab3b56, type: 3}
+  - {fileID: 21300000, guid: 0b66c77f1e168e24fa2f093796ac493b, type: 3}
+  chapter3mini2:
+  - {fileID: 21300000, guid: 14544ceac9c006d41b468ebcb142df45, type: 3}
+  - {fileID: 21300000, guid: c895f03a056d7b143832bde303cf7b73, type: 3}
+  - {fileID: 21300000, guid: c4b805309c6580e4ebac73f3da2c5651, type: 3}
+  - {fileID: 21300000, guid: c7cacd90486dd014782e06296dbbb758, type: 3}
+  - {fileID: 21300000, guid: cf095aaff0a5f4e4e8d165579e91252b, type: 3}
+  play_bgm: {fileID: 1627324471}
+  bgm1:
+  - {fileID: 8300000, guid: 733bd253caa6318458b5f9718deb97b8, type: 3}
+  - {fileID: 8300000, guid: 7ddea05e63e1db6458f2c61f5ebdd01b, type: 3}
+  - {fileID: 8300000, guid: c4e7f30c7971b9844bbbe6d4fcd0391e, type: 3}
+  - {fileID: 8300000, guid: 485aba1f4dc6bd843a8d6e5365f08fb9, type: 3}
+  - {fileID: 8300000, guid: 358a70af623463b42bd72a2b6861f779, type: 3}
   loadscreen: {fileID: 821706063}
   display_story: {fileID: 2030374970}
   secount: 4
@@ -1481,6 +1427,102 @@ MonoBehaviour:
   scene_: {fileID: 0}
   stage_type: 
   skip: {fileID: 1721203658}
+  Game_data: {fileID: 0}
+--- !u!82 &1627324471
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1627324465}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1721203655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,10 +1680,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipbutton: {fileID: 1721203658}
-  load: {fileID: 671456379}
+  load: {fileID: 821706063}
   button: {fileID: 1721203657}
   game_scene: 
   story: {fileID: 1627324465}
+  scene_: {fileID: 0}
+  Game_data: {fileID: 0}
 --- !u!1 &1737233561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,8 +1991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1, y: 43.5}
-  m_SizeDelta: {x: 965.2, y: 432.1}
+  m_AnchoredPosition: {x: 1.2, y: 43.5}
+  m_SizeDelta: {x: 1209.4, y: 432.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2030374970
 MonoBehaviour:

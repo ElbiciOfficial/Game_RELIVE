@@ -79,58 +79,96 @@ public class game_starter : MonoBehaviour
     public GameObject group1;
     public GameObject group2;
 
+    public GameObject group3;
+    public GameObject group4;
+
+    public GameObject group5;
+    public GameObject group6;
+
     public GameObject dialogue;
-    public GameObject player;
+    //public GameObject player;
+
+
+    public GameObject playermove;
+    public GameObject playerlook;
+    public GameObject headbob;
+
+    public GameObject Game_data;
 
     void Start()
-    {     
+    {
+        Game_data = GameObject.Find("Game_data");
         scene_ = GameObject.Find("scene name");
         scene_name s_name = scene_.GetComponent<scene_name>();
         scene_name c_name =current_scene.GetComponent<scene_name>();
         stage_type = s_name.Name_s;
-        Debug.Log(stage_type);
+        //Debug.Log(stage_type);
 
         if (stage_type == "chapter1_stage1")
         {
-            timeLeft = 15;
+            timeLeft = 138;
 
-
+            c_name.Name_s = "chapter1_stage2";
             stage_chapter.text = "Chapter I";
             stage_title.text = "Stage 2";
-            stage_objective.text = "Kill 60 Enemies in 2 Minutes and 30 seconds";
+            stage_objective.text = "Kill 75 Enemies in 2 Minutes and 30 seconds";
             marker_objective.text = stage_objective.text;
             group1.SetActive(true);
         }
         else if (stage_type == "chapter1_stage3")
         {
-            timeLeft = 15;
+            timeLeft = 180;
 
-            c_name.Name_s = "Chapter1_stage4";
+            c_name.Name_s = "chapter1_stage4";
             stage_chapter.text = "Chapter I";
             stage_title.text = "Stage 4";
-            stage_objective.text = "Kill 100 Enemies in 3 Minutes";
+            stage_objective.text = "Kill 110 Enemies in 3 Minutes";
             marker_objective.text = stage_objective.text;
             group2.SetActive(true);
         }
         else if (stage_type == "chapter2_stage1")
         {
-            timeLeft = 15;
+            timeLeft = 138;
 
-
+            c_name.Name_s = "chapter2_stage2";
             stage_chapter.text = "Chapter II";
             stage_title.text = "Stage 2";
             stage_objective.text = "Kill 60 Enemies in 2 Minutes and 30 seconds";
             marker_objective.text = stage_objective.text;
+            group3.SetActive(true);
         }
         else if (stage_type == "chapter2_stage3")
         {
-            timeLeft = 15;
+            timeLeft = 180;
 
-            c_name.Name_s = "Chapter2_stage4";
+            c_name.Name_s = "chapter2_stage4";
             stage_chapter.text = "Chapter II";
             stage_title.text = "Stage 4";
             stage_objective.text = "Kill 100 Enemies in 3 Minutes";
             marker_objective.text = stage_objective.text;
+            group4.SetActive(true);
+        }
+        else if (stage_type == "chapter3_stage1")
+        {
+            timeLeft = 78;
+
+            c_name.Name_s = "chapter3_stage2";
+            stage_chapter.text = "Chapter III";
+            stage_title.text = "Stage 2";
+            stage_objective.text = "Kill 50 Enemies in  1 Minutes and 30 seconds";
+            marker_objective.text = stage_objective.text;
+            group5.SetActive(true);
+        }
+        else if (stage_type == "chapter3_stage3")
+        {
+            timeLeft = 120;
+
+            c_name.Name_s = "chapter3_stage4";
+            stage_chapter.text = "Chapter III";
+            stage_title.text = "Stage 4";
+            stage_objective.text = "Kill 40 Enemies in 2 Minutes";
+            marker_objective.text = stage_objective.text;
+            group6.SetActive(true);
         }
 
         loadscreen.SetBool("open", true);
@@ -217,6 +255,13 @@ public class game_starter : MonoBehaviour
 
             //Playermove play = player.GetComponent<Playermove>();
             //play.startmove = true;
+            Playerlook look = playerlook.GetComponent<Playerlook>();
+            Playermove move = playermove.GetComponent<Playermove>();
+            headbob head = headbob.GetComponent<headbob>();
+
+            look.start = true;
+            move.start = true;
+            head.start = true;
 
             b = cdtimepanel.GetComponent<Animator>();
             b.SetBool("start_cd", true);
@@ -356,6 +401,7 @@ public class game_starter : MonoBehaviour
                 obj_sub.text = "Objective Complete";
                 obj_button.text = "Next";
                 p_succeed = true;
+                DontDestroyOnLoad(Game_data);
                 Destroy(scene_);
             }
             obj_result.text = killed.text + " " + obj_result.text + " " + stages[0];
@@ -383,6 +429,7 @@ public class game_starter : MonoBehaviour
                 obj_sub.text = "Objective Complete";
                 obj_button.text = "Next";
                 p_succeed = true;
+                DontDestroyOnLoad(Game_data);
                 Destroy(scene_);
             }
             obj_result.text = killed.text + " " + obj_result.text + " " + stages[1];
@@ -409,6 +456,7 @@ public class game_starter : MonoBehaviour
                 obj_sub.text = "Objective Complete";
                 obj_button.text = "Next";
                 p_succeed = true;
+                DontDestroyOnLoad(Game_data);
                 Destroy(scene_);
             }
             obj_result.text = killed.text + " " + obj_result.text + " " + stages[2];
@@ -435,9 +483,64 @@ public class game_starter : MonoBehaviour
                 obj_sub.text = "Objective Complete";
                 obj_button.text = "Next";
                 p_succeed = true;
+                DontDestroyOnLoad(Game_data);
                 Destroy(scene_);
             }
             obj_result.text = killed.text + " " + obj_result.text + " " + stages[3];
+        }
+        else if (stage_type == "chapter3_stage1")
+        {
+            if (int.Parse(killed.text) < int.Parse(stages[4]) && p_died != true)
+            {
+                obj_title.text = "Sad";
+                obj_sub.text = "Objective Failed";
+                obj_button.text = "Try Again";
+                p_failed = true;
+            }
+            else if (p_died == true && int.Parse(killed.text) < int.Parse(stages[4]))
+            {
+                obj_title.text = "You Died";
+                obj_sub.text = "Objective Failed";
+                obj_button.text = "Try Again";
+                p_failed = true;
+            }
+            else
+            {
+                obj_title.text = "Good Job";
+                obj_sub.text = "Objective Complete";
+                obj_button.text = "Next";
+                p_succeed = true;
+                DontDestroyOnLoad(Game_data);
+                Destroy(scene_);
+            }
+            obj_result.text = killed.text + " " + obj_result.text + " " + stages[4];
+        }
+        else if (stage_type == "chapter3_stage3")
+        {
+            if (int.Parse(killed.text) < int.Parse(stages[4]) && p_died != true)
+            {
+                obj_title.text = "Sad";
+                obj_sub.text = "Objective Failed";
+                obj_button.text = "Try Again";
+                p_failed = true;
+            }
+            else if (p_died == true && int.Parse(killed.text) < int.Parse(stages[5]))
+            {
+                obj_title.text = "You Died";
+                obj_sub.text = "Objective Failed";
+                obj_button.text = "Try Again";
+                p_failed = true;
+            }
+            else
+            {
+                obj_title.text = "Good Job";
+                obj_sub.text = "Objective Complete";
+                obj_button.text = "Next";
+                p_succeed = true;
+                DontDestroyOnLoad(Game_data);
+                Destroy(scene_);
+            }
+            obj_result.text = killed.text + " " + obj_result.text + " " + stages[5];
         }
 
 

@@ -69,7 +69,7 @@ public class chapter1_path : MonoBehaviour {
     public void activatediag(bool dialogue)
     {
         slide.SetBool("start_slide", dialogue);
-       
+        lines.text = "I hated this place as a kid…";
         line_one = numboftime;
         line_part = "first line";
         StartCoroutine("LoseTime");
@@ -77,7 +77,7 @@ public class chapter1_path : MonoBehaviour {
     public void activateobj(bool objective)
     {
         slide.SetBool("start_slide", objective);
-        lines.text = "Line 2";
+        lines.text = "Hi mom, hi dad.  Long time no see.";
         line_one = numboftime;
         line_part = "second line";
         StartCoroutine("LoseTime");
@@ -86,7 +86,7 @@ public class chapter1_path : MonoBehaviour {
     {
         Urn.tag = "static_obj";
         slide.SetBool("start_slide", urn);
-        lines.text = "Urn's Empty PUTANG INA";
+        lines.text = "what the…. The urn is empty!";
         line_one = numboftime;
         line_part = "third line";
         StartCoroutine("LoseTime");
@@ -95,7 +95,7 @@ public class chapter1_path : MonoBehaviour {
     {
         pic.tag = "static_obj";
         slide.SetBool("start_slide", picture);
-        lines.text = "Where's our family picture heheheh";
+        lines.text = "Hey wait a second… our family picture is missing!";
         line_one = numboftime;
         line_part = "fourth line";
         StartCoroutine("LoseTime");
@@ -105,7 +105,7 @@ public class chapter1_path : MonoBehaviour {
     {
 
         slide.SetBool("start_slide", picture);
-        lines.text = "I found a piece!";
+        lines.text = "I cannot believe that our family picture has been tore down to pieces.";
         line_one = numboftime;
         line_part = "fifth line";
         StartCoroutine("LoseTime");
@@ -115,11 +115,31 @@ public class chapter1_path : MonoBehaviour {
     {
         pic.tag = "static_obj";
         slide.SetBool("start_slide", done);
-        lines.text = "still not complete";
+        lines.text = "Just a little more, I need to find the rest. ";
         line_one = numboftime;
         line_part = "sixth line";
         StartCoroutine("LoseTime");
         pic1.SetActive(true);
+
+    }
+    public void unknown(bool known)
+    {
+       
+        slide.SetBool("start_slide", known);
+        lines.text = "What is happening?? Is this even real? ";
+        line_one = numboftime;
+        line_part = "twelve line";
+        StartCoroutine("LoseTime");
+      
+    }
+    public void unknown2(bool known)
+    {
+
+        slide.SetBool("start_slide", known);
+        lines.text = "Again?  Fine.  I did it last time, I’m pretty sure I can do it again.";
+        line_one = numboftime;
+        line_part = "thirteen line";
+        StartCoroutine("LoseTime");
 
     }
 
@@ -129,7 +149,7 @@ public class chapter1_path : MonoBehaviour {
         slide.SetBool("start_slide", objective2);
         door1_1.tag = "static_obj";
         door1_2.tag = "static_obj";
-        lines.text = "lines for stage 2";
+        lines.text = "What happened? Is it all in my head?";
         line_one = numboftime;
         line_part = "seventh line";
         StartCoroutine("LoseTime");
@@ -154,7 +174,7 @@ public class chapter1_path : MonoBehaviour {
     {
 
         slide.SetBool("start_slide", picture2);
-        lines.text = "I found the other piece";
+        lines.text = "Finally!";
         line_one = numboftime;
         line_part = "tenth line";
         StartCoroutine("LoseTime");
@@ -163,7 +183,7 @@ public class chapter1_path : MonoBehaviour {
     {
         pic.tag = "static_obj";
         slide.SetBool("start_slide", done);
-        lines.text = "Its done";
+        lines.text = "mom... dad..";
         line_one = numboftime;
         line_part = "eleventh line";
         StartCoroutine("LoseTime");
@@ -173,249 +193,328 @@ public class chapter1_path : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-       
-            if (line_part == "first line")
+
+        if (line_part == "first line")
+        {
+            if (line_one == -1)
             {
-                if (line_one == -1)
-                {
-                    next_key.SetActive(true);
-                }
-
-                if (next_key.activeSelf)
-                {
-                    if (Input.GetKeyDown(next))
-                    {
-                        marcus_lines += 1;
-
-                        switch (marcus_lines)
-                        {
-                            case 2:
-                                lines.text = "This place is still beautiful and peaceful...";
-
-                                line_one = numboftime;
-                                next_key.SetActive(false);
-                                break;
-
-                            case 3:
-                                lines.text = "Reminds me of my childhood...";
-
-                                line_one = numboftime;
-                                next_key.SetActive(false);
-                                break;
-
-                            case 4:
-                                slide.SetBool("start_slide", false);
-                                door1_1.tag = "Door";
-                                door1_2.tag = "Door";
-                                next_key.SetActive(false);
-                                StopCoroutine("LoseTime");
-                                line_one = numboftime;
-                                marcus_lines = 1;
-                                break;
-
-                            default:
-
-                                break;
-
-                        }
-                    }
-                }
-
-
+                next_key.SetActive(true);
             }
-            else if (line_part == "second line")
+
+            if (next_key.activeSelf)
             {
-                if (line_one == -1)
+                if (Input.GetKeyDown(next))
                 {
-                    next_key.SetActive(true);
-                }
+                    marcus_lines += 1;
 
-                if (next_key.activeSelf)
-                {
-                    if (Input.GetKeyDown(next))
+                    switch (marcus_lines)
                     {
-                        marcus_lines += 1;
+                        case 2:
+                            lines.text = "as if I am the one living in here.";
 
-                        switch (marcus_lines)
-                        {
-                            case 2:
-                                lines.text = "Line 2.1";
-                            
-                                line_one = numboftime;
-                                next_key.SetActive(false);
-                                break;
-                            case 3:
-                                next_key.SetActive(false);
-                                slide.SetBool("start_slide", false);
-                                StopCoroutine("LoseTime");
-                                objpanel.SetBool("obj_slide", true);
-                                Urn.tag = "Urn";
-                                line_one = numboftime;
-                                marcus_lines = 1;
-                                break;
-                            default:
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 3:
+                            slide.SetBool("start_slide", false);
+                            door1_1.tag = "Door";
+                            door1_2.tag = "Door";
+                            next_key.SetActive(false);
+                            StopCoroutine("LoseTime");
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            break;
 
-                                break;
+                        default:
 
-                        }
-                    }
-                }
+                            break;
 
-
-            }
-            else if (line_part == "third line")
-            {
-                if (line_one == -1)
-                {
-                    next_key.SetActive(true);
-                }
-
-                if (next_key.activeSelf)
-                {
-                    if (Input.GetKeyDown(next))
-                    {
-                        marcus_lines += 1;
-
-                        switch (marcus_lines)
-                        {
-                            case 2:
-                                lines.text = "wala na kong madagdag";
-                          
-                                line_one = numboftime;
-                                next_key.SetActive(false);
-                                break;
-                            case 3:
-                                next_key.SetActive(false);
-                                slide.SetBool("start_slide", false);
-                                StopCoroutine("LoseTime");
-                                objpanel.SetBool("obj_slide", false);
-                                line_one = numboftime;
-                                marcus_lines = 1;
-                                StartCoroutine("nextobj");
-                                break;
-                            default:
-
-                                break;
-
-                        }
                     }
                 }
             }
-            else if (line_part == "fourth line")
+
+
+        }
+        else if (line_part == "second line")
+        {
+            if (line_one == -1)
             {
-                if (line_one == -1)
-                {
-                    next_key.SetActive(true);
-                }
-
-                if (next_key.activeSelf)
-                {
-                    if (Input.GetKeyDown(next))
-                    {
-                        marcus_lines += 1;
-
-                        switch (marcus_lines)
-                        {
-                            case 2:
-                                lines.text = "I need to find it";
-
-                                line_one = numboftime;
-                                next_key.SetActive(false);
-                                break;
-                            case 3:
-                                next_key.SetActive(false);
-                                slide.SetBool("start_slide", false);
-                                StopCoroutine("LoseTime");
-                                objpanel.SetBool("obj_slide", false);
-                                line_one = numboftime;
-                                marcus_lines = 1;                          
-                                picture1.tag = "Picture piece";                       
-                                StartCoroutine("nextobj2");
-                                break;
-                            default:
-
-                                break;
-
-                        }
-                    }
-                }
-
+                next_key.SetActive(true);
             }
-            else if (line_part == "fifth line")
+
+            if (next_key.activeSelf)
             {
-                if (line_one == -1)
+                if (Input.GetKeyDown(next))
                 {
-                    next_key.SetActive(true);
-                }
+                    marcus_lines += 1;
 
-                if (next_key.activeSelf)
-                {
-                    if (Input.GetKeyDown(next))
+                    switch (marcus_lines)
                     {
-                        marcus_lines += 1;
+                        case 2:
+                            lines.text = "I’m fine if that’s what you’re asking.";
 
-                        switch (marcus_lines)
-                        {
-                            case 2:
-                                next_key.SetActive(false);
-                                slide.SetBool("start_slide", false);
-                                StopCoroutine("LoseTime");
-                                objpanel.SetBool("obj_slide", false);
-                                line_one = numboftime;
-                                marcus_lines = 1;
-                                StartCoroutine("nextobj3"); ;
-                                break;
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 3:
+                            lines.text = "well... kind of.";
 
-                            default:
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 4:
+                            next_key.SetActive(false);
+                            slide.SetBool("start_slide", false);
+                            StopCoroutine("LoseTime");
+                            objpanel.SetBool("obj_slide", true);
+                            Urn.tag = "Urn";
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            break;
+                        default:
 
-                                break;
+                            break;
 
-                        }
                     }
                 }
             }
-            else if (line_part == "sixth line")
+
+
+        }
+        else if (line_part == "third line")
+        {
+            if (line_one == -1)
             {
-                if (line_one == -1)
-                {
-                    next_key.SetActive(true);
-                }
+                next_key.SetActive(true);
+            }
 
-                if (next_key.activeSelf)
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
                 {
-                    if (Input.GetKeyDown(next))
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
                     {
-                        marcus_lines += 1;
+                        case 2:
+                            lines.text = "Did someone come here?";
 
-                        switch (marcus_lines)
-                        {
-                            case 2:
-                                next_key.SetActive(false);
-                                slide.SetBool("start_slide", false);
-                                StopCoroutine("LoseTime");
-                                objpanel.SetBool("obj_slide", false);
-                                line_one = numboftime;
-                                marcus_lines = 1;
-                                StartCoroutine("nextobj4");
-                                break;
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 3:
+                            lines.text = "I must investigate the house.";
 
-                            default:
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 4:
+                            next_key.SetActive(false);
+                            slide.SetBool("start_slide", false);
+                            StopCoroutine("LoseTime");
+                            objpanel.SetBool("obj_slide", false);
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            StartCoroutine("nextobj");
+                            break;
+                        default:
 
-                                break;
+                            break;
 
-                        }
                     }
                 }
             }
+        }
+        else if (line_part == "fourth line")
+        {
+            if (line_one == -1)
+            {
+                next_key.SetActive(true);
+            }
+
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
+                {
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
+                    {
+                        case 2:
+                            lines.text = "I better go find it somewhere";
+
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 3:
+                            next_key.SetActive(false);
+                            slide.SetBool("start_slide", false);
+                            StopCoroutine("LoseTime");
+                            objpanel.SetBool("obj_slide", false);
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            picture1.tag = "Picture piece";
+                            StartCoroutine("nextobj2");
+                            break;
+                        default:
+
+                            break;
+
+                    }
+                }
+            }
+
+        }
+        else if (line_part == "fifth line")
+        {
+            if (line_one == -1)
+            {
+                next_key.SetActive(true);
+            }
+
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
+                {
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
+                    {
+
+                        case 2:
+                            lines.text = "I must collect all of them and put it all back together.";
+
+                            line_one = numboftime;
+                            next_key.SetActive(false);
+                            break;
+                        case 3:
+                            next_key.SetActive(false);
+                            slide.SetBool("start_slide", false);
+                            StopCoroutine("LoseTime");
+                            objpanel.SetBool("obj_slide", false);
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            StartCoroutine("nextobj3"); ;
+                            break;
+
+                        default:
+
+                            break;
+
+                    }
+                }
+            }
+        }
+        else if (line_part == "sixth line")
+        {
+            if (line_one == -1)
+            {
+                next_key.SetActive(true);
+            }
+
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
+                {
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
+                    {
+                        case 2:
+                            next_key.SetActive(false);
+                            slide.SetBool("start_slide", false);
+                            StopCoroutine("LoseTime");
+                            objpanel.SetBool("obj_slide", false);
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            StartCoroutine("nextobj4");
+                            break;
+
+                        default:
+
+                            break;
+
+                    }
+                }
+            }
+        }
+        else if (line_part == "twelve line")
+        {
+            if (line_one == -1)
+            {
+                next_key.SetActive(true);
+            }
+
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
+                {
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
+                    {
+
+                        case 2:
+                            slide.SetBool("start_slide", false);                
+                            portal.tag = "Portal";
+                            next_key.SetActive(false);
+                            StopCoroutine("LoseTime");
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            break;
+
+                        default:
+
+                            break;
+
+                    }
+                }
+            }
+        }
+        else if (line_part == "thirteen line")
+        {
+            if (line_one == -1)
+            {
+                next_key.SetActive(true);
+            }
+
+            if (next_key.activeSelf)
+            {
+                if (Input.GetKeyDown(next))
+                {
+                    marcus_lines += 1;
+
+                    switch (marcus_lines)
+                    {
+
+                        case 2:
+                            slide.SetBool("start_slide", false);           
+                            portal.tag = "Portal";
+                            next_key.SetActive(false);
+                            StopCoroutine("LoseTime");
+                            line_one = numboftime;
+                            marcus_lines = 1;
+                            break;
+
+                        default:
+
+                            break;
+
+                    }
+                }
+            }
+
+
+        }
 
             if (obj_next == 0)
             {
-                objpanel.SetBool("obj_slide", true);
-                obj_text.text = "Search the house for clues";
-                Inventory_story story = inventory.GetComponent<Inventory_story>();
-                story.key_access = true;
+                    objpanel.SetBool("obj_slide", true);
+                    obj_text.text = "Search the house for clues";
+                    Inventory_story story = inventory.GetComponent<Inventory_story>();
+                    story.key_access = true;
 
-                pic.tag = "Empty Picture Frame";
+                    pic.tag = "Empty Picture Frame";
 
             }
             else if (obj_next < 0)
@@ -462,11 +561,11 @@ public class chapter1_path : MonoBehaviour {
             {
                 StopCoroutine("nextobj4");
             }
-                
-       
-        //else if(game_stage == "GameManager1.3")
-        //{
-        if (line_part == "seventh line")
+
+
+            //else if(game_stage == "GameManager1.3")
+            //{
+            if (line_part == "seventh line")
             {
                 if (line_one == -1)
                 {
@@ -482,7 +581,7 @@ public class chapter1_path : MonoBehaviour {
                         switch (marcus_lines)
                         {
                             case 2:
-                                lines.text = "Somethings strange going on here I'll try to find the other piece";
+                                lines.text = "Doesn’t matter, I have to find the missing pieces.";
                                 line_one = numboftime;
                                 next_key.SetActive(false);
                                 break;
@@ -490,7 +589,7 @@ public class chapter1_path : MonoBehaviour {
                                 next_key.SetActive(false);
                                 slide.SetBool("start_slide", false);
                                 StopCoroutine("LoseTime");
-                                door3.tag = "Door";                              
+                                door3.tag = "Door";
                                 line_one = numboftime;
                                 marcus_lines = 1;
                                 StartCoroutine("nextobj5");
@@ -520,7 +619,7 @@ public class chapter1_path : MonoBehaviour {
                         switch (marcus_lines)
                         {
                             case 2:
-                                lines.text = "linesssss";
+                                lines.text = "Something strange going on here";
                                 line_one = numboftime;
                                 next_key.SetActive(false);
                                 break;
@@ -530,7 +629,7 @@ public class chapter1_path : MonoBehaviour {
                                 StopCoroutine("LoseTime");
                                 door2.tag = "Door";
                                 line_one = numboftime;
-                                marcus_lines = 1;                    
+                                marcus_lines = 1;
                                 break;
 
                             default:
@@ -540,145 +639,154 @@ public class chapter1_path : MonoBehaviour {
                         }
                     }
                 }
-        }
-        else if (line_part == "ninth line")
-        {
-            if (line_one == -1)
-            {
-                next_key.SetActive(true);
             }
-
-            if (next_key.activeSelf)
+            else if (line_part == "ninth line")
             {
-                if (Input.GetKeyDown(next))
+                if (line_one == -1)
                 {
-                    marcus_lines += 1;
+                    next_key.SetActive(true);
+                }
 
-                    switch (marcus_lines)
+                if (next_key.activeSelf)
+                {
+                    if (Input.GetKeyDown(next))
                     {
-                      
-                        case 2:
-                            next_key.SetActive(false);
-                            slide.SetBool("start_slide", false);
-                            StopCoroutine("LoseTime");                        
-                            line_one = numboftime;
-                            marcus_lines = 1;
-                            picture2.tag = "Picture piece";
-                            break;
+                        marcus_lines += 1;
 
-                        default:
+                        switch (marcus_lines)
+                        {
 
-                            break;
+                            case 2:
+                                next_key.SetActive(false);
+                                slide.SetBool("start_slide", false);
+                                StopCoroutine("LoseTime");
+                                line_one = numboftime;
+                                marcus_lines = 1;
+                                picture2.tag = "Picture piece";
+                                break;
 
+                            default:
+
+                                break;
+
+                        }
                     }
                 }
             }
-        }
-        else if (line_part == "tenth line")
-        {
-            if (line_one == -1)
+            else if (line_part == "tenth line")
             {
-                next_key.SetActive(true);
-            }
-
-            if (next_key.activeSelf)
-            {
-                if (Input.GetKeyDown(next))
+                if (line_one == -1)
                 {
-                    marcus_lines += 1;
+                    next_key.SetActive(true);
+                }
 
-                    switch (marcus_lines)
+                if (next_key.activeSelf)
+                {
+                    if (Input.GetKeyDown(next))
                     {
-                        case 2:
-                            next_key.SetActive(false);
-                            slide.SetBool("start_slide", false);
-                            StopCoroutine("LoseTime");
-                            objpanel.SetBool("obj_slide", false);
-                            line_one = numboftime;
-                            marcus_lines = 1;
-                            StartCoroutine("nextobj6"); 
-                            break;
+                        marcus_lines += 1;
 
-                        default:
+                        switch (marcus_lines)
+                        {
+                            case 2:
+                                lines.text = "I look sad in this picture.";
+                                line_one = numboftime;
+                                next_key.SetActive(false);
+                                break;
 
-                            break;
+                            case 3:
+                                next_key.SetActive(false);
+                                slide.SetBool("start_slide", false);
+                                StopCoroutine("LoseTime");
+                                objpanel.SetBool("obj_slide", false);
+                                line_one = numboftime;
+                                marcus_lines = 1;
+                                StartCoroutine("nextobj6");
+                                break;
 
+                            default:
+
+                                break;
+
+                        }
                     }
                 }
             }
-        }
-        else if (line_part == "eleventh line")
-        {
-            if (line_one == -1)
+            else if (line_part == "eleventh line")
             {
-                next_key.SetActive(true);
-            }
-
-            if (next_key.activeSelf)
-            {
-                if (Input.GetKeyDown(next))
+                if (line_one == -1)
                 {
-                    marcus_lines += 1;
+                    next_key.SetActive(true);
+                }
 
-                    switch (marcus_lines)
+                if (next_key.activeSelf)
+                {
+                    if (Input.GetKeyDown(next))
                     {
-                        case 2:
-                            next_key.SetActive(false);
-                            slide.SetBool("start_slide", false);
-                            StopCoroutine("LoseTime");
-                            objpanel.SetBool("obj_slide", false);
-                            line_one = numboftime;
-                            marcus_lines = 1;
-                            StartCoroutine("nextobj7");
-                            break;
+                        marcus_lines += 1;
 
-                        default:
+                        switch (marcus_lines)
+                        {
+                            case 2:
+                                next_key.SetActive(false);
+                                slide.SetBool("start_slide", false);
+                                StopCoroutine("LoseTime");
+                                objpanel.SetBool("obj_slide", false);
+                                line_one = numboftime;
+                                marcus_lines = 1;
+                                StartCoroutine("nextobj7");
+                                break;
 
-                            break;
+                            default:
 
+                                break;
+
+                        }
                     }
                 }
             }
-        }
-        //}
-        if (obj_next5 == 0)
-        {
-               objpanel.SetBool("obj_slide", true);
-               obj_text.text = "Find the other piece";
+            //}
+            if (obj_next5 == 0)
+            {
+                objpanel.SetBool("obj_slide", true);
+                obj_text.text = "Find the other piece";
 
-               objtracker.SetBool("start_obj", true);
-        }
+                objtracker.SetBool("start_obj", true);
+            }
 
-        if (obj_next6 == 0)
-        {
-            objpanel.SetBool("obj_slide", true);
-            obj_text.text = "Put it Back into the Frame";
+            if (obj_next6 == 0)
+            {
+                objpanel.SetBool("obj_slide", true);
+                obj_text.text = "Put it Back into the Frame";
 
-            objtracker.SetBool("obj_complete", true);
-            item_text.text = "1/1 - Picture Piece";
-            pic.tag = "Empty Picture Frame";
-        }
-        else if (obj_next6 < 0)
-        {
-            StopCoroutine("nextobj6");
-        }
+                objtracker.SetBool("obj_complete", true);
+                item_text.text = "1/1 - Picture Piece";
+                pic.tag = "Empty Picture Frame";
+            }
+            else if (obj_next6 < 0)
+            {
+                StopCoroutine("nextobj6");
+            }
 
-        if (obj_next7 == 0)
-        {
-            objpanel.SetBool("obj_slide", true);
-            obj_text.text = "line final";
+            if (obj_next7 == 0)
+            {
+                objpanel.SetBool("obj_slide", true);
+                obj_text.text = "line final";
 
-            objtracker.SetBool("close_obj", true);
-            portal.SetActive(true);
+                objtracker.SetBool("close_obj", true);
+                portal.SetActive(true);
 
-        }
-        else if (obj_next7 < 0)
-        {
-            StopCoroutine("nextobj7");
-        }
+            }
+            else if (obj_next7 < 0)
+            {
+                StopCoroutine("nextobj7");
+            }
+
 
 
     }
+
+
 
 
     IEnumerator LoseTime()

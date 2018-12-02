@@ -9,6 +9,7 @@ public class MainMenuScript : MonoBehaviour {
     public Animator title;
 
     public int count = 3;
+    public GameObject Game_data;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class MainMenuScript : MonoBehaviour {
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         DontDestroyOnLoad(newgame);
+        DontDestroyOnLoad(Game_data);
     }
 
     public void Exit()

@@ -22,6 +22,7 @@ public class game_starte_story : MonoBehaviour {
     int oneshot;
     public Button startbutton;
     public Animator loadsreen;
+ 
 
     void Start()
     {

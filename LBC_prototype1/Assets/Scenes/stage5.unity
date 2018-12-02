@@ -1921,8 +1921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -8.769673, y: 30.795687}
-  m_SizeDelta: {x: 757.9, y: 141}
+  m_AnchoredPosition: {x: -10.734, y: 30.795687}
+  m_SizeDelta: {x: 668.309, y: 141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050962013
 MonoBehaviour:
@@ -2134,8 +2134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 82.9}
-  m_SizeDelta: {x: 1594.1, y: 138.2}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 109.7}
+  m_SizeDelta: {x: 1594.1, y: 191.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182551369
 MonoBehaviour:
@@ -2698,8 +2698,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000076293945, y: 4}
-  m_SizeDelta: {x: 1594.1, y: 131}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 5.3}
+  m_SizeDelta: {x: 1594.1, y: 175.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379198760
 MonoBehaviour:
@@ -3002,6 +3002,8 @@ MonoBehaviour:
   numberofwrong: 0
   scene_: {fileID: 0}
   final_scene: {fileID: 1743358286}
+  no_button: {fileID: 1140295890}
+  yes_button: {fileID: 1852914466}
 --- !u!1 &1526791573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,8 +3162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.013763, y: -73.4}
-  m_SizeDelta: {x: 125.4, y: 113.4}
+  m_AnchoredPosition: {x: 0.013763, y: -118.6}
+  m_SizeDelta: {x: 125.4, y: 170.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1671864610
 MonoBehaviour:
@@ -3414,7 +3416,7 @@ GameObject:
   - component: {fileID: 1743358288}
   - component: {fileID: 1743358287}
   m_Layer: 0
-  m_Name: final_scene
+  m_Name: scene name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

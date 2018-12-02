@@ -7,6 +7,7 @@ public class Playerlook : MonoBehaviour {
     [SerializeField] private string mouseXInputName, mouseYInputName;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private Transform playerBody;
+    public bool start;
 
     private float xAxisClamp;
 
@@ -24,7 +25,7 @@ public class Playerlook : MonoBehaviour {
 	// Update is called once per frame
 	private void Update () {
 
-        if (Time.timeSinceLevelLoad >= 8)
+        if (start == true)
         {
             CameraRotation();
         }

@@ -41,41 +41,17 @@ public class Interactor : MonoBehaviour {
 
                     if (Input.GetKeyDown(key))
                     {
-                        if (ray_Hit.collider.tag == "Door")
-                        {
-                          
-                                             
-                        }
-                        else
-                        {
+                       
                             Inventory item = inventorypanel.GetComponent<Inventory>();
                             itemname = ray_Hit.collider.tag;
                             item.Additem(itemname);
                             Destroy(ray_Hit.collider.gameObject);
-                        }
                       
                     }
                 }
                 
             }
-            //else
-            //if (ray_Hit.collider.name == "Rifle_objct")
-            //{
-            //    //Debug.Log("hello RIFLE");
-            //    inter();
-
-            //    if (Input.GetKeyDown(key))
-            //    {
-            //        Destroy(ray_Hit.collider.gameObject);
-            //        rifle1.SetActive(true);
-            //        if (inum1 == 0)
-            //        {
-            //            Slot1.GetComponent<Image>().sprite = sprite2;
-            //            inum1 = 1;
-            //        }
-
-            //    }
-            //}
+ 
         }
     }
 }

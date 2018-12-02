@@ -85,7 +85,67 @@ public class objective_trigger : MonoBehaviour {
             chap2.activatediag4(true);
             Destroy(gameObject);
         }
+        else if (gameObject.name == "objective_trigger chapt3.1")
+        {
+            Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
 
+            //objectUI.SetActive(true);
+            chap3.activategoup(true);
+            Destroy(gameObject);
+        }
+        else if (gameObject.name == "objective_trigger chapt3.1.1")
+        {
+            Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
+
+            //objectUI.SetActive(true);
+            chap3.activateup(true);
+            Destroy(gameObject);
+        }
+        else if (gameObject.name == "objective_trigger chapt3.2")
+        {
+            Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
+
+            //objectUI.SetActive(true);
+            chap3.activategoup2(true);
+            Destroy(gameObject);
+        }
+        else if (gameObject.name == "objective_trigger end")
+        {
+            ending_path last = objectUI.GetComponent<ending_path>();
+
+            //objectUI.SetActive(true);
+            last.activateobj(true);
+            Destroy(gameObject);
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+         if (gameObject.name == "dialogue_trigger chapt3.1")
+        {
+            Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
+
+            //objectUI.SetActive(true);
+            chap3.activatediag(true);
+            Destroy(gameObject);
+        }
+        else if (gameObject.name == "dialogue_trigger chapt3.2")
+        {
+            Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
+
+            //objectUI.SetActive(true);
+            chap3.activatediag2(true);
+            Destroy(gameObject);
+        }
+        else if (gameObject.name == "dialogue_trigger end")
+        {
+            ending_path last = objectUI.GetComponent<ending_path>();
+
+            //objectUI.SetActive(true);
+            last.activatediag(true);
+            Destroy(gameObject);
+        }
     }
 
 }

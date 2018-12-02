@@ -36,10 +36,28 @@ public class Interactor_story : MonoBehaviour {
     public GameObject objectUI;
     public string leveltoload;
     private int portal_count = 3;
+    private int startwhitescreen = 2;
     public Animator loadscene;
+    public Animator loadwhitescreen;
 
     public GameObject _scenename;
+    public GameObject chest;
+    public Animator rob1;
+    public Animator rob2;
+    private int pop = 2;
+    private int loadS = 4;
+    public GameObject Game_data;
 
+    public void Start()
+    {
+        Game_data = GameObject.Find("Game_data");
+        game_data game = Game_data.GetComponent<game_data>();
+        scene_name scene = _scenename.GetComponent<scene_name>();
+        game.stage_scene = scene.Name_s;
+      
+
+    }
+   
     void inter()
     {
 
@@ -47,7 +65,7 @@ public class Interactor_story : MonoBehaviour {
     }
 
     void Update()
-    {
+    {     
         interact.SetActive(false);
         Ray ray_Cast = camera.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
         RaycastHit ray_Hit;
@@ -88,14 +106,21 @@ public class Interactor_story : MonoBehaviour {
                             {
                                 isopen4 = !isopen4;
                                 door4.SetBool("open", isopen4);
+
+                                if (objectUI.name == "Ending_path")
+                                {
+                                    StartCoroutine("startwhite");
+                                    StartCoroutine("load1");
+                                }
                             }
                             else if (ray_Hit.collider.name == "Door1 chapt2")
                             {
                                 isopen5 = !isopen5;
                                 door5.SetBool("open_door", isopen5);
                             }
+                          
 
-                        }
+                        }                     
                         else if (ray_Hit.collider.tag == "Urn")
                         {
                    
@@ -180,6 +205,35 @@ public class Interactor_story : MonoBehaviour {
                             }
 
                         }
+                        else if (ray_Hit.collider.tag == "Mysterious Chest")
+                        {
+                            Animator c = chest.GetComponent<Animator>();
+                            c.SetBool("open", true);
+                            chest.tag = "static_obj";
+                            StartCoroutine("startpop");
+                        }
+                        else if (ray_Hit.collider.tag == "Mysterious Book")
+                        {
+                            Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
+                            chap3.activatebook(true);
+                         
+                        }                    
+                        else if (ray_Hit.collider.tag == "Missing Picture")
+                        {
+                            if (ray_Hit.collider.name == "page1")
+                            {
+                                Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
+                                chap3.activatepage1(true);
+                                Destroy(ray_Hit.collider.gameObject);
+                            }
+                            else if (ray_Hit.collider.name == "page2")
+                            {
+                                Chapter3_path chap3 = objectUI.GetComponent<Chapter3_path>();
+                                chap3.activatepage2(true);
+                                Destroy(ray_Hit.collider.gameObject);
+                            }
+
+                        }
                         else if (ray_Hit.collider.tag == "Portal")
                         {
                             loadscene.SetBool("load", true);
@@ -187,24 +241,65 @@ public class Interactor_story : MonoBehaviour {
                             StartCoroutine("loadscreen");
                             DontDestroyOnLoad(_scenename);
                         }
+                        else if (ray_Hit.collider.tag == "Unknown Energy")
+                        {
+                            scene_name name = _scenename.GetComponent<scene_name>();
+                            if (name.Name_s == "chapter1_stage1")
+                            {
+                                chapter1_path chap1 = objectUI.GetComponent<chapter1_path>();
+                                chap1.unknown(true);
+                            }else if(name.Name_s == "chapter1_stage3")
+                            {
+                                chapter1_path chap1 = objectUI.GetComponent<chapter1_path>();
+                                chap1.unknown2(true);
+                            }
+                            else if (name.Name_s == "chapter2_stage1")
+                            {
+                                Chapter2_path chap2 = objectUI.GetComponent<Chapter2_path>();
+                                chap2.unknown(true);
+                            }
+                            else if (name.Name_s == "chapter2_stage3")
+                            {
+                                Chapter2_path chap2 = objectUI.GetComponent<Chapter2_path>();
+                                chap2.unknown2(true);
+                            }
+
+                        }
                         else
                         {
                             Inventory item = inventorypanel.GetComponent<Inventory>();
                             itemname = ray_Hit.collider.tag;
                             item.Additem(itemname);
                             Destroy(ray_Hit.collider.gameObject);
-                        }
+                        }  
+                       
 
                     }
                 }
 
             }
 
-            if (portal_count == 0)
-            {
-                SceneManager.LoadScene(leveltoload);
-            }        
-          
+         
+        }
+        if (portal_count == 0)
+        {
+            DontDestroyOnLoad(Game_data);
+            SceneManager.LoadScene(leveltoload);
+
+        }
+        if (startwhitescreen == 0)
+        {
+            loadwhitescreen.SetBool("load", true);
+        }
+        if (loadS == 0)
+        {
+            DontDestroyOnLoad(Game_data);
+            SceneManager.LoadScene("Storyline_ending");
+        }
+
+        if (pop == 0)
+        {          
+            rob1.SetBool("pop", true);
         }
     }
     IEnumerator loadscreen()
@@ -215,6 +310,45 @@ public class Interactor_story : MonoBehaviour {
 
 
             portal_count--;
+ 
+
+
+        }
+    }
+    IEnumerator startwhite()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+
+
+           startwhitescreen--;
+            
+
+
+        }
+    }
+    IEnumerator startpop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+
+
+            pop--;
+
+
+
+        }
+    }
+    IEnumerator load1()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+
+
+            loadS--;
 
 
 
