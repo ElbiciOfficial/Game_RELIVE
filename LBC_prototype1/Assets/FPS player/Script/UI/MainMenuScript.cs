@@ -24,6 +24,13 @@ public class MainMenuScript : MonoBehaviour {
         DontDestroyOnLoad(Game_data);
     }
 
+    public void Continuegame()
+    {
+        scene_name con = newgame.GetComponent<scene_name>();
+        con.Name_s = "continue";
+
+    }
+
     public void Exit()
     {
         Debug.Log("Quitting Game");

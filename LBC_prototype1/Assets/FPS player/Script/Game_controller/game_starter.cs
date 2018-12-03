@@ -88,21 +88,37 @@ public class game_starter : MonoBehaviour
     public GameObject dialogue;
     //public GameObject player;
 
+    public GameObject Save;
 
     public GameObject playermove;
     public GameObject playerlook;
     public GameObject headbob;
 
     public GameObject Game_data;
+    public GameObject data;
+    public string scenename = "chapter1_stage2";
 
     void Start()
-    {
-        Game_data = GameObject.Find("Game_data");
+    {    
+        //Game_data = GameObject.Find("Game_data");
         scene_ = GameObject.Find("scene name");
         scene_name s_name = scene_.GetComponent<scene_name>();
         scene_name c_name =current_scene.GetComponent<scene_name>();
         stage_type = s_name.Name_s;
+   
+        saveunit sa = Save.GetComponent<saveunit>();
+        sa.Getscene = scenename;
+        sa.Getstage_type = stage_type;
         //Debug.Log(stage_type);
+
+        data = GameObject.Find("data_loader");
+      
+        if (data != null)
+        {
+            loadunit load = data.GetComponent<loadunit>();
+            stage_type = load.scene_stage;
+        }
+            
 
         if (stage_type == "chapter1_stage1")
         {
@@ -119,7 +135,7 @@ public class game_starter : MonoBehaviour
         {
             timeLeft = 180;
 
-            c_name.Name_s = "chapter1_stage4";
+            c_name.Name_s = "Chapter1_stage4";
             stage_chapter.text = "Chapter I";
             stage_title.text = "Stage 4";
             stage_objective.text = "Kill 110 Enemies in 3 Minutes";
@@ -141,7 +157,7 @@ public class game_starter : MonoBehaviour
         {
             timeLeft = 180;
 
-            c_name.Name_s = "chapter2_stage4";
+            c_name.Name_s = "Chapter2_stage4";
             stage_chapter.text = "Chapter II";
             stage_title.text = "Stage 4";
             stage_objective.text = "Kill 100 Enemies in 3 Minutes";
@@ -163,7 +179,7 @@ public class game_starter : MonoBehaviour
         {
             timeLeft = 120;
 
-            c_name.Name_s = "chapter3_stage4";
+            c_name.Name_s = "Chapter3_stage4";
             stage_chapter.text = "Chapter III";
             stage_title.text = "Stage 4";
             stage_objective.text = "Kill 40 Enemies in 2 Minutes";
@@ -181,7 +197,6 @@ public class game_starter : MonoBehaviour
         {
             UIlist[i].SetActive(false);
         }
-        
         //Just making sure that the timeScale is right             
     }
 

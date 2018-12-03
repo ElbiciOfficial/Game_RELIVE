@@ -48,14 +48,29 @@ public class Interactor_story : MonoBehaviour {
     private int loadS = 4;
     public GameObject Game_data;
 
+    public GameObject Save;
+    public GameObject data;
+
     public void Start()
     {
         Game_data = GameObject.Find("Game_data");
         game_data game = Game_data.GetComponent<game_data>();
         scene_name scene = _scenename.GetComponent<scene_name>();
         game.stage_scene = scene.Name_s;
-      
 
+        saveunit sa = Save.GetComponent<saveunit>();
+        sa.Getscene = scene.Name_s;
+        sa.numr = game.numright;
+        sa.numr = game.numwrong;
+
+        data = GameObject.Find("data_loader");
+
+        if (data != null)
+        {
+            loadunit load = data.GetComponent<loadunit>();
+            game.numright = load.numr;
+            game.numwrong = load.numw;
+        }
     }
    
     void inter()

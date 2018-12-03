@@ -50,7 +50,7 @@ public class question_script : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        Game_data = GameObject.Find("Game_data");     
+        Game_data = GameObject.Find("Game_data");
         loadscreen.SetBool("open", true);
         Cursor.lockState = CursorLockMode.Locked;
 
